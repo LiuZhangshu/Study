@@ -1,0 +1,28 @@
+# kernel
+
+## 升级内核.kernel
+etc grub :: /etc/grub.conf
+
+1.wget http://elrepo.org/linux/kernel/el6/x86_64/RPMS/kernel-lt-4.4.111-1.el6.elrepo.x86_64.rpm 
+wget http://elrepo.org/linux/kernel/el6/x86_64/RPMS/kernel-lt-devel-4.4.111-1.el6.elrepo.x86_64.rpm  
+
+*32-bit http://elrepo.org/linux/kernel/el6/i386/RPMS/*
+
+yum groups install Development Tools
+yum install ncurses-devel qt-devel hmaccalc zlib-devel binutils-devel elfutils-libelf-devel
+2.修改配置文件
+/etc/grub.conf
+修改 GRUB_DEFAULT=0
+/etc/default/grub
+GRUB_DEFAULT
+3.重新创建内核配置
+grub2-mkconfig -o /boot/grub2/grub.cfg
+4.重启
+5.查看内核版本
+	uname -r 
+	
+	
+depmod: WARNING: could not open /lib/modules/4.4.111-1.el6.elrepo.x86_64/modules.order: No such file or directory
+depmod: WARNING: could not open /lib/modules/4.4.111-1.el6.elrepo.x86_64/modules.builtin: No such file or directory
+depmod: WARNING: could not open /var/tmp/dracut.4eLKgG/initramfs/lib/modules/4.4.111-1.el6.elrepo.x86_64/modules.order: No such file or directory
+depmod: WARNING: could not open /var/tmp/dracut.4eLKgG/initramfs/lib/modules/4.4.111-1.el6.elrepo.x86_64/modules.builtin: No such file or directory

@@ -1,0 +1,52 @@
+﻿1.设置yum代理
+export http_proxy="http://10.144.1.10:8080"
+2.设置合上盖子不休眠
+	1)vi  /etc/systemd/logind.conf    
+		HandleLidSwitch=lock
+	2)systemctl restart systemd-logind 
+3.免密登录
+	1)生成密钥
+		 ssh-keygen -t rsa
+	2)设置远程登录
+		ssh-copy-id 目标IP
+4.本地源
+createrepo
+yum clean all
+yum makecache
+sudo yum repolist
+
+5.rpm
+rpm -qa 查看所有已安装软件
+rpm -ivh
+
+6.yum
+查看已安装软件
+yum list installed
+卸载
+yum erase xxx
+安装
+yum -y install xxx
+安装本地文件
+yum -y localinstall 
+
+7.make
+
+检查环境
+./configure 
+
+编译
+make
+
+安装
+
+make install
+
+卸载
+
+make uninstall
+
+
+
+
+
+

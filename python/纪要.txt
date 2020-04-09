@@ -1,0 +1,11 @@
+·00解决python3方向键乱码问题
+export http_proxy="http://10.144.1.10:8080"
+yum  -y install readline-devel
+pip3代理设置方法
+pip3 install --proxy http://10.144.1.10:8080  tensorflow
+
+
+扩展元
+yum -y install epel-release
+
+
