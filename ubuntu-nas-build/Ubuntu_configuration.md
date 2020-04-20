@@ -167,7 +167,7 @@ sudo apt install vim
 ```
 sudo apt install openssh-server
 ```
-## make
+## C/C++ environment 
 ```
 sudo apt install build-essential
 ```
