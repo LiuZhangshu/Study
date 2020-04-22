@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<sstream>
 using namespace std ; 
 istream& func(istream& s ){
     string buffer ; 
@@ -10,6 +11,6 @@ istream& func(istream& s ){
     
 }
 int main(){
-    istream &is =func(cin)  ;
-    cout<< is.rdstate() <<endl ; 
+    istringstream is ("hello") ; 
+    func(is)  ;
 }

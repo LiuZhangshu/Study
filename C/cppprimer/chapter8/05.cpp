@@ -23,6 +23,7 @@ int main(int argc, char **argv){
             output<<show<<endl ;
         }
     }
+    output.close() ; 
     return 0 ; 
 
 }
