@@ -141,8 +141,9 @@ ctl+w + w           光标切换
 
 
 
+# c/c++ 插件配置
 
-
+![use vim as ide](https://github.com/yangyangwithgnu/use_vim_as_ide)
 
 
 
