@@ -19,16 +19,18 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
 ```
 ## port
 | service | port |
-|:----:|:---:|
-|postgres |5432 |
-|pgadmin | 8081 |
-|nextcloud| 8082|
+|:-------:|:----:|
+|postgres | 5432 |
+|pgadmin  | 8081 |
+|nextcloud| 8082 |
 |jellyfin | 8096 |
+|cockpit  | 9090 |
 
 ## service
 1. postgres
     ```
     docker run -itd --name postgresql -v  /data/nasdata/postgresql/data:/var/lib/postgresql/data --restart always -p 5432:5432 postgres:9.6.15 
+
     ```
     
 2. pgadmin
@@ -47,15 +49,7 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
    ```
    
    ```
-   docker run -d --name jellyfin \
-   -v /volume1/docker/jellyfin/config:/config \
-   -v /volume1/docker/jellyfin/cache:/cache \
-   -v /volume1/video:/video \
-   -p 8096:8096 \
-   -p 8920:8920 \
-   --device=/dev/dri/renderD128 \
-   --restart unless-stopped \
-   jellyfin/jellyfin
+   docker run -itd --name jellyfin -p 8096:8096 -v /data/nasdata/jellyfin/config:/config -v /data/nasdata/jellyfin/cache:/cache -v /data/nasdata/jellyfin/media:/media --device=/dev/dri/renderD128 --restart unless-stopped  jellyfin/jellyfin
    ```
    
    
@@ -129,10 +123,12 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
     --restart unless-stopped \
     linuxserver/transmission
    ```
-  ```
 
-  ```
-
-  ```
-
-  ```
+8. cockpit
+   ```
+   sudo apt-get install cockpit
+   ```
+9. postgis
+   ```
+   docker run --name some-postgis -e POSTGRES_PASSWORD=mysecretpassword -d postgis/postgis
+   ```

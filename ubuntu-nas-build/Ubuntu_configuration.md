@@ -201,7 +201,6 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 ## java
 ```
  sudo apt install openjdk-8-jre-headless 
- sudo gpasswd -a 用户名 docker
 ```
 ```bash
 tar -xzvf jdk-8u221-linux-x64.tar.gz
@@ -255,4 +254,7 @@ sudo apt-get update
 sudo apt-get install indicator-sysmonitor 
 ```
 
- sudo mount -t cifs -o user=root,password=fast123 //192.168.31.21/6ac6 ./6ac6/
+
+
+
+sudo mount -t cifs -o user=root,password=fast123 //192.168.31.21/6ac6 ./6ac6/
