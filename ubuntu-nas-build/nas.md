@@ -25,6 +25,10 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
 |nextcloud| 8082 |
 |jellyfin | 8096 |
 |cockpit  | 9090 |
+|postgis  | 15432|
+|jupyter  | 8888 |
+|nginx    | 8080 |
+|calibre  | 8083 | 
 
 ## service
 1. postgres
@@ -130,5 +134,18 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
    ```
 9. postgis
    ```
-   docker run --name some-postgis -e POSTGRES_PASSWORD=mysecretpassword -d postgis/postgis
+   docker run --name some-postgis -p 15432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d mdillon/postgis
+   ```
+10. calibre 
+    ```
+    docker create \
+      --name=calibre-web \
+      -e PUID=1000 \
+      -e PGID=1000 \
+      -e TZ=Asia/Shanghai \
+      -p 8083:8083 \
+      -v /data2/ebook/config:/config \
+      -v /data2/ebook/books:/books \
+      --restart unless-stopped \
+      linuxserver/calibre-web
    ```
