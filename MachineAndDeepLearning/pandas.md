@@ -20,7 +20,7 @@ print(s)
     4    44.0
     5     1.0
     dtype: float64
-    
+
 
 
 ```python
@@ -41,7 +41,7 @@ print(df)
     2018-01-04  0.967792 -0.073258 -1.646381 -2.181505
     2018-01-05 -0.790746  0.567697  0.158390 -0.648439
     2018-01-06 -1.295299  1.576053 -0.333230  0.644605
-    
+
 
 
 ```python
@@ -56,7 +56,7 @@ print(df1)
     3 -0.296956  2.369682 -0.817827 -2.047013
     4 -0.387844  0.328449 -2.060368 -0.959735
     5 -0.147846 -0.375913 -1.537331 -0.331203
-    
+
 
 
 ```python
@@ -75,7 +75,7 @@ print(df2)
     1  1.0 2013-01-02  1.0  3   test  foo
     2  1.0 2013-01-02  1.0  3   rest  foo
     3  1.0 2013-01-02  1.0  3  train  foo
-    
+
 
 
 ```python
@@ -143,7 +143,7 @@ print(df2.sort_values(by='E'))##倒序
     2  1.0 2013-01-02  1.0  3   rest  foo
     1  1.0 2013-01-02  1.0  3   test  foo
     3  1.0 2013-01-02  1.0  3  train  foo
-    
+
 
 
 ```python
@@ -180,7 +180,7 @@ print(df.A,'\n',df['A'])
     2018-01-05    16
     2018-01-06    20
     Freq: D, Name: A, dtype: int32
-    
+
 
 
 ```python
@@ -232,8 +232,9 @@ print(df.iloc[[1,3,5],1:3],'\n')
     2018-01-02   5   6
     2018-01-04  13  14
     2018-01-06  21  22 
-    
-    
+
+
+​    
 
 
 ```python
@@ -252,7 +253,7 @@ print(df[df.A<8])
                 A  B  C  D
     2018-01-01  0  1  2  3
     2018-01-02  4  5  6  7
-    
+
 
 ## pandas设置值
 
@@ -301,7 +302,7 @@ print(df)
     2018-01-04  0  0  0  0
     2018-01-05  0  0  0  0
     2018-01-06  0  0  0  0
-    
+
 
 
 ```python
@@ -317,7 +318,12 @@ print(df)
     2018-01-04  0  0  0  0 NaN  4
     2018-01-05  0  0  0  0 NaN  5
     2018-01-06  0  0  0  0 NaN  6
-    
+
+apply
+
+
+
+
 
 ## pandas处理丢失数据
 
@@ -355,7 +361,7 @@ print(np.any(df.isnull())==True)
     2018-01-05  16  17.0  18.0  19
     2018-01-06  20  21.0  22.0  23
     True
-    
+
 
 ## pandas数据导入导出
 
@@ -385,7 +391,7 @@ data.to_csv('student2.csv')
     12        1112   huyjt   22    male
     13        1113    trhy   33    male
     14        1114      rw   11    male
-    
+
 
 ## pandas拼接
 
@@ -440,7 +446,7 @@ print(res)
     6  2.0  2.0  2.0  2.0
     7  2.0  2.0  2.0  2.0
     8  2.0  2.0  2.0  2.0
-    
+
 
 
 ```python
@@ -475,7 +481,7 @@ print(res)
     1  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0
     2  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0
     3  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0
-    
+
 
     d:\python35\lib\site-packages\ipykernel_launcher.py:6: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
     of pandas will change to not sort by default.
@@ -483,9 +489,10 @@ print(res)
     To accept the future behavior, pass 'sort=False'.
     
     To retain the current behavior and silence the warning, pass 'sort=True'.
-    
-      
-    
+
+
+​      
+​    
 
 ## append
 
@@ -538,7 +545,7 @@ print(res)
     1  0.0  0.0  0.0  0.0
     2  0.0  0.0  0.0  0.0
     3  1.0  2.0  3.0  4.0
-    
+
 
 ## merge
 
@@ -572,7 +579,7 @@ print(res)
     1  a1  b1  k1  C1  D1
     2  a2  b2  k2  C2  D2
     3  a3  b3  k3  C3  D3
-    
+
 
 
 ```python
@@ -609,7 +616,7 @@ print(res)
     2  A2  B2   K1   K0   C1   D1
     3  A2  B2   K1   K0   C2   D2
     4  A3  B3   K2   K1  NaN  NaN
-    
+
 
 
 ```python
@@ -630,7 +637,7 @@ res = pd.merge(df1, df2, on='col1', how='outer', indicator='indicator_column')
     0     1          2
     1     2          2
     2     2          2
-    
+
 
 
 ```python
@@ -667,7 +674,7 @@ print(res)
        age_boy   k  age_girl
     0        1  K0         4
     1        1  K0         5
-    
+
 
 ## pandas plot
 
@@ -708,4 +715,4 @@ for i in range(1,20,2) :
     15
     17
     19
-    
+

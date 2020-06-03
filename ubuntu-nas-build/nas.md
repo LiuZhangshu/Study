@@ -34,7 +34,7 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
 1. postgres
     ```
     docker run -itd --name postgresql -v  /data/nasdata/postgresql/data:/var/lib/postgresql/data --restart always -p 5432:5432 postgres:9.6.15 
-
+    sudo apt-get install postgresql-client
     ```
     
 2. pgadmin
@@ -53,7 +53,7 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
    ```
    
    ```
-   docker run -itd --name jellyfin -p 8096:8096 -v /data/nasdata/jellyfin/config:/config -v /data/nasdata/jellyfin/cache:/cache -v /data/nasdata/jellyfin/media:/media --device=/dev/dri/renderD128 --restart unless-stopped  jellyfin/jellyfin
+   docker run -itd --name jellyfin -p 8096:8096 -v /data/nasdata/jellyfin/config:/config -v /data/nasdata/jellyfin/cache:/cache -v /data/nasdata/jellyfin/media:/media -v /data2/media:/media2 --device=/dev/dri/renderD128 --device /dev/dri/card0:/dev/dri/card0 --restart unless-stopped  jellyfin/jellyfin
    ```
    
    
@@ -134,7 +134,8 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
    ```
 9. postgis
    ```
-   docker run --name some-postgis -p 15432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d mdillon/postgis
+   docker run --name postgis -v  /data2/postgis/data:/var/lib/postgresql/data -p 15432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d mdillon/postgis
+
    ```
 10. calibre 
     ```
@@ -148,4 +149,9 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
       -v /data2/ebook/books:/books \
       --restart unless-stopped \
       linuxserver/calibre-web
+   ```
+
+11. jupyter 
+   ```
+   jupyter notebook --no-browser --port 8899 --ip=0.0.0.0
    ```

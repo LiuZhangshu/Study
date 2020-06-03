@@ -235,10 +235,12 @@ sudo apt-get install VLC
 ## xmind
 
 ## docky
+```sh
+sudo add-apt-repository ppa:ricotz/docky
 sudo apt-get install docky
-
-## anbox
 ```
+## anbox
+```bash
 add-apt-repository ppa:morphis/anbox-support
 apt install -y anbox-modules-dkms
 modprobe ashmem_linux
