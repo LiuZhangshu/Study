@@ -5,7 +5,8 @@
 using namespace std ; 
 int main(int argc, char **argv){
     cout<< argv[1] << endl ; 
-    ifstream input(argv[1]) ; 
+    ifstream input; 
+    input.open(argv[1]) ; 
     ofstream output ; 
     vector<string> str ; 
     if(input){

@@ -11,6 +11,6 @@ istream& func(istream& s ){
     
 }
 int main(){
-    istringstream is ("hello") ; 
+    istringstream is("hello") ; 
     func(is)  ;
 }

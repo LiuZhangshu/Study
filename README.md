@@ -29,3 +29,5 @@ scala：scala笔记
 tensorflow：tensorflow笔记
 
 ubuntu-nas-build：Ubuntu美化，nas搭建笔记
+
+vim: vim使用基础
