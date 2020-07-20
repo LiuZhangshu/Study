@@ -39,7 +39,7 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
     
 2. pgadmin
    ```bash
-   docker run -p 8081:80 --name pgadmin4   -e "PGADMIN_DEFAULT_EMAIL=1149733622@qq.com"      -e "PGADMIN_DEFAULT_PASSWORD=fast*123"   -d dpage/pgadmin4
+   docker run -p 8081:80 --name pgadmin4 -v /data/nasdata/pgadmin:/var/lib/pgadmin --restart always   -e "PGADMIN_DEFAULT_EMAIL=1149733622@qq.com"      -e "PGADMIN_DEFAULT_PASSWORD=fast*123"   -d dpage/pgadmin4
    ```
    
 3. next cloud
@@ -55,7 +55,9 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
    ```
    docker run -itd --name jellyfin -p 8096:8096 -v /data/nasdata/jellyfin/config:/config -v /data/nasdata/jellyfin/cache:/cache -v /data/nasdata/jellyfin/media:/media -v /data2/media:/media2 --device=/dev/dri/renderD128 --device /dev/dri/card0:/dev/dri/card0 --restart unless-stopped  jellyfin/jellyfin
    ```
-   
+   ```
+   docker run -itd --name jellyfin -p 8096:8096 -p 8920:8920 -v /data/nasdata/jellyfin/config:/config -v /data/nasdata/jellyfin/cache:/cache -v /data/media:/data/media -v /data2/media:/data2/media --device=/dev/dri/renderD128 --device /dev/dri/card0:/dev/dri/card0 --restart unless-stopped  jellyfin/jellyfin
+   ```
    
    
 5. kodi
@@ -155,3 +157,16 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
    ```
    jupyter notebook --no-browser --port 8899 --ip=0.0.0.0
    ```
+
+12. 
+```
+docker create \
+  --name=subfinder \
+  -e PUID=1026 \
+  -e PGID=100 \
+  -e TZ=Asia/Shanghai \
+  -e TASK=2h \
+  -v /path/to/appdata/config:/config \
+  -v /path/to/libraries:/media \
+  superng6/subfinder
+  ```
