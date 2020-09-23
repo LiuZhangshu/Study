@@ -250,13 +250,32 @@ snap install --devmode --beta anbox
 ```
 
 ## monitor
-```
+```bash
 sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor  
 sudo apt-get update 
 sudo apt-get install indicator-sysmonitor 
 ```
-
-
-
-
+## mount samba
+```bash
 sudo mount -t cifs -o user=root,password=fast123 //192.168.31.21/6ac6 ./6ac6/
+```
+## sbt
+```
+wget https://sbt-downloads.cdnedge.bluemix.net/releases/v1.3.0/sbt-1.3.0.zip
+unzip sbt-1.3.0.zip
+sudo mv sbt /usr/local/
+vim ~/.sbt/repositories
+```
+```
+[repositories]
+local
+huaweicloud-maven: https://repo.huaweicloud.com/repository/maven/
+maven-central: https://repo1.maven.org/maven2/
+sbt-plugin-repo: https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+```
+```
+vim /usr/local/sbt/conf/sbtopts 
+```
+```
+-Dsbt.override.build.repos=true
+```
