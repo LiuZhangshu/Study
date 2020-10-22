@@ -29,6 +29,8 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
 |jupyter  | 8888 |
 |nginx    | 8080 |
 |calibre  | 8083 | 
+|wordpress| 8084 |
+|mariadb  | 3306 | 
 
 ## service
 1. postgres
@@ -157,6 +159,18 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
    ```
    jupyter notebook --no-browser --port 8899 --ip=0.0.0.0
    ```
+
+12. mariadb 
+   ```bash 
+   docker run --name mariadb -p 3306:3306 -v /data/nasdata/mariadb:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="fast*123" -d mariadb
+
+   ```
+
+
+docker run --name some-wordpress -v /data/nasdata/wordpress:/var/www/html -p 8084:80 -d wordpress
+
+
+
 
 12. 
 ```
