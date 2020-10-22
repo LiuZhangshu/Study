@@ -132,6 +132,9 @@ scala> mySet += "scala"
 scala> mySet
 res5: scala.collection.immutable.Set[String] = Set(hadoop, spark, scala)
 ```
+#### map 
+默认不可变
+可变映射必须显式导入 scala.collection.mutable.MAP
 
 
 
