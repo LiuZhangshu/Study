@@ -260,13 +260,15 @@ sudo apt-get install indicator-sysmonitor
 sudo mount -t cifs -o user=root,password=fast123 //192.168.31.21/6ac6 ./6ac6/
 ```
 ## sbt
+install 
+```bash
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
+sudo apt-get update
+sudo apt-get install sbt
 ```
-wget https://sbt-downloads.cdnedge.bluemix.net/releases/v1.3.0/sbt-1.3.0.zip
-unzip sbt-1.3.0.zip
-sudo mv sbt /usr/local/
-vim ~/.sbt/repositories
-```
-```
+configure local repo
+```bash
 [repositories]
 local
 huaweicloud-maven: https://repo.huaweicloud.com/repository/maven/
@@ -278,4 +280,18 @@ vim /usr/local/sbt/conf/sbtopts
 ```
 ```
 -Dsbt.override.build.repos=true
+```
+
+## tinyMediaManager
+```bash
+sudo apt-get install libmediainfo-dev
+cd tinyMediaManager
+cat <<EOM >~/.local/share/applications/tinyMediaManager.desktop
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=tinyMediaManager
+Icon=$PWD/tmm.png
+Exec=$PWD/tinyMediaManager.sh
+EOM
 ```
