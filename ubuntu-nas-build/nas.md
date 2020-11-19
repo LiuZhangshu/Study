@@ -51,7 +51,7 @@ ln -s /data/nasdata/teleplay /data/nasdata/jellyfin/media/teleplay
     
 4. jellyfin
    ```bash 
-   docker run -itd --name jellyfin -p 8096:8096 -v /data/nasdata/jellyfin/config:/config -v /data/nasdata/jellyfin/cache:/cache -v /data/nasdata/jellyfin/media:/media  jellyfin/jellyfin
+   docker run -itd --name jellyfin -p 8096:8096 -p 8920:8920 -v /data/nasdata/jellyfin/config:/config -v /data/nasdata/jellyfin/cache:/cache -v /data2/media:/data2/media -v /data3/media:/data3/media -v /data4/media:/data4/media --device=/dev/dri/renderD128 --device /dev/dri/card0:/dev/dri/card0 --restart unless-stopped  jellyfin/jellyfin
    ```
    
    ```
